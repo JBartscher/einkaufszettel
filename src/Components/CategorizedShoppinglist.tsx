@@ -17,7 +17,7 @@ export type ShoppingListItem = {
 	pills?: string[]
 }
 
-const Shoppinglist = () => {
+const CategorizedShoppinglist = () => {
 
 	const initialState: Items = { categories: [] }
 
@@ -39,7 +39,7 @@ const Shoppinglist = () => {
 
 	return (
 		<>
-			<div className='shoppinglist' id='shoppinglist'>
+			<div className='categorizedshoppinglist' id='categorizedshoppinglist'>
 				{items.categories.map(category => (
 					<Category categoryName={category.categoryName} items={category.items} />
 				))}
@@ -47,4 +47,4 @@ const Shoppinglist = () => {
 		</>)
 
 }
-export default Shoppinglist
+export default CategorizedShoppinglist

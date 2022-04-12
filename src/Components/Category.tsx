@@ -1,6 +1,9 @@
+import Item from './Item'
+import { ShoppingListItem } from './Shoppinglist'
+
 type CategoryProps = {
 	categoryName: string,
-	items: string[]
+	items: ShoppingListItem[]
 }
 
 const Category = (props: CategoryProps) => {
@@ -21,6 +24,7 @@ const Category = (props: CategoryProps) => {
         py-4
         px-5
         text-base text-gray-800 text-left
+        text-xl
         bg-white
         border-0
         rounded-none
@@ -33,10 +37,10 @@ const Category = (props: CategoryProps) => {
 			</h2>
 			<div id={`collapse${categoryNameWithoutSpaces}`} className='accordion-collapse collapse show'
 								aria-labelledby={`heading${categoryNameWithoutSpaces}`}>
-				<div className='accordion-body py-4 px-5'>
-					<ul>
-					{items.map(item =>(<li>{item}</li>))}
-					</ul>
+				<div className='grid-rows-1 accordion-body py-4 px-5'>
+
+					{items.map(item =>(<Item initialState={item.active} name={item.name}/>))}
+
 				</div>
 			</div>
 		</div>
